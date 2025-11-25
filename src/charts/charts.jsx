@@ -30,7 +30,7 @@ function Chart() {
       <h2 className="chart-title">Yearly Performance</h2>
 
       <div className="chart-wrapper">
-        <ResponsiveContainer width="100%" height="100%">
+         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
 

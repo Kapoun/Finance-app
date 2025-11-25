@@ -8,57 +8,55 @@ import Sidebar from '../Sidebar/Sidebar';
 import Ohter from '../Other/Other';
 import Setting from '../Setting/Setting';
 import Chart from '../charts/charts';
+import Card from "../Card/Card"
 
 const userName = "Kapoun";
 
 function Dashboard(){
-return (
+return ( 
 
 <div className="dashboard">
-
-  {/* Sidebar stays on the left */}
   <Sidebar />
 
-  {/* Right side content */}
   <div className="main-content">
 
     <div className="dash-header">
       Welcome back, {userName}!
     </div>
 
-    <div className="cards-grid">
-
-      <AccountsPage
-        icon="🏦"
-        title="Account Balance" 
-        value="$150,000"
+    <div className="card-container">
+      
+      <Card 
+        title="Total Income" 
+        amount="KES 000" 
+        icon="💰" 
+        color="#4FBC2B"
       />
 
-      <Expenditure 
-        icon="💸"
-        title="Monthly Expenditure" 
-        value="$5,000"
+      <Card 
+        title="Investments" 
+        amount="KES 000" 
+        icon="📈" 
+        color="#5F52D8"
       />
 
-      <Investment
-        icon="📈"
-        title="Total Investments" 
-        value="$75,000"
+      <Card 
+        title="Expenses" 
+        amount="KES 000" 
+        icon="💸" 
+        color="#DBD523"
+      />
+    
+    <Card 
+        title="Balance" 
+        amount="KES 000" 
+        icon="💸" 
+        color="#C085DB"
       />
 
-      <Income 
-        icon="💰"
-        title="Monthly Income" 
-        value="$10,000"
-      />
-
-      <Ohter />
-
-   
-    <Chart />
-     
     </div>
 
+  <Chart />
   </div>
 
 </div>

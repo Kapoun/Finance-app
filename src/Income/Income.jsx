@@ -1,13 +1,16 @@
 import React from "react";
 import "./Income.css";
+import Sidebar from '../Sidebar/Sidebar';
 
 
 function Income({title , value}) {
   return (
-    <div className="income">
-         <div><label>{title}</label> </div>  
-         <div> <label>{value}</label></div>
-    </div>
+     <div >
+
+             <h1>Income</h1>
+             <Sidebar />
+             
+        </div>
   );
 }
 

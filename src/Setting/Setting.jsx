@@ -1,11 +1,14 @@
 import React from  'react';
 import "./Setting.css";
+import Sidebar from '../Sidebar/Sidebar';
 
 
 
 function Setting() {    
     return (
         <div className="setting">
+
+            <Sidebar />
             <h2>Settings</h2>
             <div className="setting-option">
                 <label>Notification Preferences</label>
