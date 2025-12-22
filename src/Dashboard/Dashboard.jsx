@@ -37,21 +37,21 @@ return (
         title="Investments" 
         amount="KES 000" 
         icon="📈" 
-        color="#5F52D8"
+        color="#4FBC2B"
       />
 
       <Card 
         title="Expenses" 
         amount="KES 000" 
         icon="💸" 
-        color="#DBD523"
+        color="#4FBC2B"
       />
     
     <Card 
         title="Balance" 
         amount="KES 000" 
         icon="💸" 
-        color="#C085DB"
+        color="#4FBC2B"
       />
 
     </div>

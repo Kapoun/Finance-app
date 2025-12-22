@@ -18,7 +18,7 @@ function Sidebar({ currentPage, setCurrentPage }) {
       <Link to="/">Dashboard</Link> 
       <Link to="/investments">investments</Link> 
       <Link to="/income">Income</Link> 
-      <Link to="/expenditure">Expenditure</Link>
+      <Link to="/expenditure">Expense</Link>
       <Link to="/Accounts">Accounts</Link>
       <Link to="/settings">settings</Link> 
     </div>
