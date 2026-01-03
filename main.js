@@ -3,7 +3,17 @@ import db from "./db.js";          // or wherever your db lives
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import pg from "pg";
+
 dotenv.config();
+
+const pool = new pg.Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASS,
+    port: process.env.DB_PORT,
+});
 
 const app = express();
 
@@ -16,10 +26,10 @@ app.post("/Login", async (req, res) => {
         const { username, password } = req.body;
         if (!username || !password) {
             res.send("Login successful");
-            console.log("password or username is missing");
+
         } else {
             res.send("Login failed");
-            console.log("password or username is missing");
+
         }
         // Query database to find user with matching email
         const result = await db.query("SELECT * FROM users WHERE username = $1", [

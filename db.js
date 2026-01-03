@@ -15,7 +15,7 @@ const pool = new pg.Pool({
 pool.query("SELECT NOW()")
   .then(res => {
     console.log("Connected to PostgreSQL at:", res.rows[0].now);
-    pool.end();
+
   })
   .catch(err => {
     console.error("DB CONNECTION ERROR:", err);
