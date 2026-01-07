@@ -34,7 +34,7 @@ function Register() {
         throw new Error(data.message);
       }
 
-      navigate('/login');
+      navigate('/');
     } catch (err) {
       console.error("Registration error:", err);
     }
@@ -57,6 +57,7 @@ function Register() {
       <form onSubmit={registerUser}>
         <label>Full Name</label>
         <input
+          placeholder="Enter your full name"
           type="text"
           name="full_name"
           value={user.full_name}
@@ -66,6 +67,7 @@ function Register() {
 
         <label>Email</label>
         <input
+          placeholder="Enter your email"
           type="email"
           name="email"
           value={user.email}
@@ -75,6 +77,7 @@ function Register() {
 
         <label>Phone Number</label>
         <input
+          placeholder="Enter your phone number"
           type="text"
           name="phone_number"
           value={user.phone_number}
@@ -84,6 +87,7 @@ function Register() {
 
         <label>Password</label>
         <input
+          placeholder="Enter your password"
           type="password"
           name="password"
           value={user.password}
@@ -93,6 +97,7 @@ function Register() {
 
         <label>Confirm Password</label>
         <input
+          placeholder="Enter your confirm password"
           type="password"
           name="confirm_password"
           value={user.confirm_password}

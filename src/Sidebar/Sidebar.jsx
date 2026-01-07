@@ -9,18 +9,22 @@ function Sidebar({ currentPage, setCurrentPage }) {
     "Income",
     "Expenditure",
     "Investments",
+    "Transactions",
     "Settings",
+
   ];
 
   return (
     <div className="sidebar">
       <h2>Finance Tracker</h2>
-      <Link to="/">Dashboard</Link> 
-      <Link to="/investments">investments</Link> 
-      <Link to="/income">Income</Link> 
+      <Link to="/dashboard">Dashboard</Link>
+      <Link to="/investments">investments</Link>
+      <Link to="/income">Income</Link>
       <Link to="/expenditure">Expense</Link>
       <Link to="/Accounts">Accounts</Link>
-      <Link to="/settings">settings</Link> 
+      <Link to="/transactions">transactions</Link>
+      <Link to="/settings">settings</Link>
+
     </div>
   );
 }

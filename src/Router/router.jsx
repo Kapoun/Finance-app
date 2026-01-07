@@ -10,7 +10,7 @@ import Investments from "../Investment/Investment";
 import Settings from "../Setting/Setting";
 import Login from "../Login/Login.jsx";
 import Register from "../Register/Register.jsx";
-
+import Transactions from "../Transactions/transactions";
 
 function AppRouter() {
   return (
@@ -23,7 +23,8 @@ function AppRouter() {
         <Route path="/investments" element={<Investments />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/transactions" element={<Transactions />} />
       </Routes>
     </BrowserRouter>
   );

@@ -9,58 +9,62 @@ import Ohter from '../Other/Other';
 import Setting from '../Setting/Setting';
 import Chart from '../charts/charts';
 import Card from "../Card/Card"
+import Transactions from '../Transactions/transactions';
 
 const userName = "Kapoun";
 
-function Dashboard(){
-return ( 
+function Dashboard() {
+  return (
 
-<div className="dashboard">
-  <Sidebar />
+    <div className="dashboard">
+      <Sidebar />
 
-  <div className="main-content">
+      <div className="main-content">
 
-    <div className="dash-header">
-      Welcome back, {userName}!
+        <div className="dash-header">
+          Welcome back, {userName}!
+        </div>
+
+        <div className="card-container">
+
+          <Card
+            title="Total Income"
+            amount="KES 000"
+            icon="💰"
+            color="#4FBC2B"
+          />
+
+          <Card
+            title="Investments"
+            amount="KES 000"
+            icon="📈"
+            color="#4FBC2B"
+          />
+
+          <Card
+            title="Expenses"
+            amount="KES 000"
+            icon="💸"
+            color="#4FBC2B"
+          />
+
+          <Card
+            title="Balance"
+            amount="KES 000"
+            icon="💸"
+            color="#4FBC2B"
+          />
+
+        </div>
+
+        <Chart />
+
+
+      </div>
+
     </div>
 
-    <div className="card-container">
-      
-      <Card 
-        title="Total Income" 
-        amount="KES 000" 
-        icon="💰" 
-        color="#4FBC2B"
-      />
-
-      <Card 
-        title="Investments" 
-        amount="KES 000" 
-        icon="📈" 
-        color="#4FBC2B"
-      />
-
-      <Card 
-        title="Expenses" 
-        amount="KES 000" 
-        icon="💸" 
-        color="#4FBC2B"
-      />
-    
-    <Card 
-        title="Balance" 
-        amount="KES 000" 
-        icon="💸" 
-        color="#4FBC2B"
-      />
-
-    </div>
-
-  <Chart />
-  </div>
-
-</div>
-
-)};
+  )
+};
 
 export default Dashboard;

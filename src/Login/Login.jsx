@@ -32,6 +32,7 @@ function Login() {
 
       if (!response.ok) {
         throw new Error(data.message || 'Login failed due to an unknown error.');
+        <label> wrong username or password</label>
       }
 
       navigate('/dashboard');
