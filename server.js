@@ -1,6 +1,7 @@
 import express from "express";
 import db from "./db.js";
 import cors from "cors";
+import router from "./API.js";
 
 const app = express();
 const PORT = 5000;
@@ -23,6 +24,7 @@ async function validateUserInput(username, password, db) {
 
   if (result.rows.length === 0) {
     throw new Error("Invalid username or password");
+
   }
 
   return result.rows[0];
@@ -57,5 +59,46 @@ app.post("/register", async (req, res) => {
     res.status(500).json({ message: "Failed to register user" });
   }
 });
+
+app.post("/transactions", async (req, res) => {
+  const { description, amount, type } = req.body;
+
+  try {
+    const result = await db.query(
+      "INSERT INTO transactions (description, amount, type) VALUES ($1, $2, $3) RETURNING *",
+      [description, amount, type]
+    );
+
+    res.status(201).json(result.rows[0]); // 👈 send back the new transaction
+  } catch (error) {
+    console.error("Error adding transaction:", error);
+    res.status(500).json({ message: "Failed to add transaction" });
+  }
+});
+
+
+app.delete("/transactions/:id", async (req, res) => {
+  const id = Number(req.params.id); // 👈 important
+
+  try {
+    const result = await db.query(
+      "DELETE FROM transactions WHERE id = $1",
+      [id]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ message: "Transaction not found" });
+    }
+
+    res.status(200).json({ message: "Transaction deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting transaction:", error);
+    res.status(500).json({ message: "Failed to delete transaction" });
+  }
+});
+
+app.use("/api", router);
+
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

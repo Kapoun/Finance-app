@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './transactions.css'
 import Sidebar from '../Sidebar/Sidebar'
-
+import TransactionList from '../TransactionList/TransactionList'
+import { useEffect } from 'react'
 
 function Transactions() {
     const [transactions, setTransactions] = useState([])
@@ -16,32 +17,87 @@ function Transactions() {
         setNewTransaction({ description: '', amount: 0, type: 'income' })
     }
 
-    const handleDeleteTransaction = (index) => {
-        const newTransactions = [...transactions]
-        newTransactions.splice(index, 1)
-        setTransactions(newTransactions)
+    useEffect(() => {
+        fetch("http://localhost:5000/api/transactions")
+            .then(res => res.json())
+            .then(data => setTransactions(data));
+    }, []);
+
+
+
+    async function handlePostAddTransaction(e) {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:5000/transactions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newTransaction),
+            });
+
+            const savedTransaction = await response.json();
+
+            // to avoid realod of the page 
+            setTransactions(prev => [...prev, savedTransaction]);
+
+            setNewTransaction({
+                description: "",
+                amount: 0,
+                type: "income",
+            });
+
+        } catch (error) {
+            console.error("Error adding transaction:", error);
+        }
     }
+
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setNewTransaction(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+
+    async function handleDeleteTransaction(id) {
+        try {
+            await fetch(`http://localhost:5000/transactions/${id}`, {
+                method: 'DELETE',
+            });
+
+            // ✨ remove from UI instantly
+            setTransactions(prev =>
+                prev.filter(transaction => transaction.id !== id)
+            );
+
+        } catch (error) {
+            console.error('Error deleting transaction:', error);
+        }
+    }
+
 
     return (
         <div className="transactions">
             <h2>Transactions</h2>
             <div>
-                <input type="text" placeholder="Description" value={newTransaction.description} onChange={(e) => setNewTransaction({ ...newTransaction, description: e.target.value })} />
-                <input type="number" placeholder="Amount" value={newTransaction.amount} onChange={(e) => setNewTransaction({ ...newTransaction, amount: e.target.value })} />
-                <select value={newTransaction.type} onChange={(e) => setNewTransaction({ ...newTransaction, type: e.target.value })}>
+                <input id="description" type="text" placeholder="Description" value={newTransaction.description} onChange={(e) => setNewTransaction({ ...newTransaction, description: e.target.value })} />
+                <input id="amount" type="number" placeholder="Amount" value={newTransaction.amount} onChange={(e) => setNewTransaction({ ...newTransaction, amount: e.target.value })} />
+                <select id="type" value={newTransaction.type} onChange={(e) => setNewTransaction({ ...newTransaction, type: e.target.value })}>
                     <option value="income">Income</option>
                     <option value="expense">Expense</option>
                 </select>
-                <button onClick={handleAddTransaction}>Add Transaction</button>
+                <button onClick={handlePostAddTransaction}>Post Transaction</button>
+
+                <TransactionList
+                    transactions={transactions}
+                    onDelete={handleDeleteTransaction}
+                />
+
             </div>
-            <ul>
-                {transactions.map((transaction, index) => (
-                    <li key={index}>
-                        {transaction.description} - {transaction.amount} - {transaction.type}
-                        <button onClick={() => handleDeleteTransaction(index)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
+
             <div>
                 <h2>Summary</h2>
                 <p>Total Income: {transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + t.amount, 0)}</p>

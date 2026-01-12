@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AccountsPage from '../Accounts/Accounts';
 import './Dasboard.css';
 import Income from '../Income/Income';
@@ -10,10 +10,14 @@ import Setting from '../Setting/Setting';
 import Chart from '../charts/charts';
 import Card from "../Card/Card"
 import Transactions from '../Transactions/transactions';
+import TransactionList from '../TransactionList/TransactionList'
+import { useEffect } from 'react';
+
 
 const userName = "Kapoun";
 
-function Dashboard() {
+function Dashboard(transactions) {
+
   return (
 
     <div className="dashboard">
@@ -54,11 +58,13 @@ function Dashboard() {
             icon="💸"
             color="#4FBC2B"
           />
-
         </div>
 
         <Chart />
 
+        <h2>Transactions</h2>
+
+        <Transactions />
 
       </div>
 

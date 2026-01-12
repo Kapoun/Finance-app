@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppRouter from './Router/router.jsx';
+import Transactions from './Transactions/transactions';
 
-function App() {  
+function App() {
+  const [transactions, setTransactions] = useState([]);
   return <AppRouter />;
 }
 
