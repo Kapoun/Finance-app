@@ -16,7 +16,7 @@ async function validateUserInput(username, password, db) {
   if (!username || !password) {
     throw new Error("Username and password are required");
   }
-
+ 
   const result = await db.query(
     "SELECT * FROM Register WHERE email = $1",
     [username]
@@ -61,20 +61,40 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/transactions", async (req, res) => {
-  const { description, amount, type } = req.body;
+  const {
+    user_id,
+    account_id,
+    category_id,
+    type,
+    amount,
+    description,
+    transaction_date
+  } = req.body;
 
   try {
     const result = await db.query(
-      "INSERT INTO transactions (description, amount, type) VALUES ($1, $2, $3) RETURNING *",
-      [description, amount, type]
+      `INSERT INTO transactions
+       (user_id, account_id, category_id, type, amount, description, transaction_date)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       RETURNING *`,
+      [
+        user_id,
+        account_id,
+        category_id,
+        type,
+        amount,
+        description,
+        transaction_date
+      ]
     );
 
-    res.status(201).json(result.rows[0]); // 👈 send back the new transaction
+    res.status(201).json(result.rows[0]);
   } catch (error) {
     console.error("Error adding transaction:", error);
     res.status(500).json({ message: "Failed to add transaction" });
   }
 });
+
 
 
 app.delete("/transactions/:id", async (req, res) => {
@@ -98,6 +118,22 @@ app.delete("/transactions/:id", async (req, res) => {
 });
 
 app.use("/api", router);
+
+
+app.post("/accounts", async (req, res) => {
+   console.log("REQ BODY 👉", req.body);
+  const { user_id, name, type } = req.body;
+try {
+    const result = await db.query(
+      "INSERT INTO accounts (user_id, name, type) VALUES ($1, $2, $3) RETURNING *",
+      [user_id, name, type]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error("Error creating account:", error);
+    res.status(500).json({ message: "Failed to create account" });
+  }
+});
 
 
 

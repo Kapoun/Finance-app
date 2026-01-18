@@ -5,18 +5,28 @@ import Income from '../Income/Income';
 import Investment from '../Investment/Investment';
 import Expenditure from '../Expenditure/Expenditure';
 import Sidebar from '../Sidebar/Sidebar';
-import Ohter from '../Other/Other';
-import Setting from '../Setting/Setting';
 import Chart from '../charts/charts';
 import Card from "../Card/Card"
 import Transactions from '../Transactions/transactions';
 import TransactionList from '../TransactionList/TransactionList'
 import { useEffect } from 'react';
+import { useMemo } from 'react';
 
 
 const userName = "Kapoun";
 
-function Dashboard(transactions) {
+function Dashboard({ transactions = [] }) {
+
+  const balance = useMemo(() => {
+    return transactions.reduce(
+      (acc, t) =>
+        acc + (t.type === 'income'
+          ? Number(t.amount)
+          : -Number(t.amount)),
+      0
+    );
+  }, [transactions]);
+
 
   return (
 
@@ -33,7 +43,7 @@ function Dashboard(transactions) {
 
           <Card
             title="Total Income"
-            amount="KES 000"
+            amount={balance}
             icon="💰"
             color="#4FBC2B"
           />
@@ -64,7 +74,9 @@ function Dashboard(transactions) {
 
         <h2>Transactions</h2>
 
-        <Transactions />
+        <Transactions
+          balance={balance}
+        />
 
       </div>
 
