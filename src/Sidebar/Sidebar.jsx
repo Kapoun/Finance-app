@@ -10,6 +10,7 @@ function Sidebar({ currentPage, setCurrentPage }) {
     "Expenditure",
     "Investments",
     "Transactions",
+    "Reports",
     "Settings",
 
   ];
@@ -22,8 +23,9 @@ function Sidebar({ currentPage, setCurrentPage }) {
       <Link to="/income">Income</Link>
       <Link to="/expenditure">Expense</Link>
       <Link to="/Accounts">Accounts</Link>
-      <Link to="/transactions">transactions</Link>
-      <Link to="/settings">settings</Link>
+      <Link to="/transactions">Transactions</Link>
+      <Link to="/Reports">Reports</Link>
+      <Link to="/settings">Settings</Link>
 
     </div>
   );

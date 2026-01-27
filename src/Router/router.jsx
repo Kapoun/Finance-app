@@ -11,6 +11,7 @@ import Settings from "../Setting/Setting";
 import Login from "../Login/Login.jsx";
 import Register from "../Register/Register.jsx";
 import Transactions from "../Transactions/transactions";
+import Reports from "../Reports/Reports.jsx";
 
 function AppRouter() {
   return (
@@ -25,6 +26,7 @@ function AppRouter() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/transactions" element={<Transactions />} />
+        <Route path="/Reports" element={<Reports />} />
       </Routes>
     </BrowserRouter>
   );

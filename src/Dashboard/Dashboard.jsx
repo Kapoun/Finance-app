@@ -70,14 +70,10 @@ function Dashboard({ transactions = [] }) {
           />
         </div>
 
-        <Chart />
 
         <h2>Transactions</h2>
 
-        <Transactions
-          balance={balance}
-        />
-
+        
       </div>
 
     </div>

@@ -1,75 +1,51 @@
-.transactions {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
+.transaction-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.transaction-container button:hover {
+    background-color: #0069d9;
+}
+
+/* 🌫️ Background overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    margin: 80px auto;
-    padding: 20px;
-
-}
-
-.transactions-form {
+    background: rgba(0, 0, 0, 0.5); /* translucent dark */
+    backdrop-filter: blur(4px);    /* glass effect */
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.transactions-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.transactions-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.transactions-form button:hover {
-    background-color: #45a049;
-}
-
-.transactions ul {
-    list-style: none;
-    padding: 0;
-}
-
-.transactions li {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    justify-content: center;
+    z-index: 1000;
 }
 
-.transactions li button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* 📦 Modal box */
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: popIn 0.25s ease-out;
 }
 
-.transactions li button:hover {
-    background-color: #d32f2f;
-}
-
-.transactions select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-
-.transactions label {
-    font-weight: lighter;
-    color: rgb(99, 103, 107);
+/* ✨ Soft entrance animation */
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
