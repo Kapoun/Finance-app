@@ -3,6 +3,7 @@ import './Accounts.css';
 import Sidebar from '../Sidebar/Sidebar';
 import Card from '../Card/Card';
 import { useState } from 'react';
+import { Label } from 'recharts';
 
 
 function AccountsPage({ }) {
@@ -46,7 +47,7 @@ function AccountsPage({ }) {
 
     return (
         <div >
-            <h1>Account</h1>
+            <h1 className='h-account'>Account</h1>
             <Sidebar />
 
           <button onClick={handleClick} className="btn-open-form">
@@ -54,20 +55,22 @@ function AccountsPage({ }) {
           </button>
 
              {formOpen && (
-            <div className="add-account-form">
+            <div className="modal-overlay">
             <div className="modal-content">
-            <h3>Create Auccount</h3>
-
-            <input id='useId' type="text" placeholder="User_id" required  value={userId} onChange={(e) => setUserId(e.target.value)}/>
-              
+            <h3>Create Account</h3>
+            <div className="add-account-form">
+            <label htmlFor="userId">User ID:</label>
+            <input id='userId' type="text" placeholder="User_id" required  value={userId} onChange={(e) => setUserId(e.target.value)}/>
+            <label htmlFor="name">Account Name:</label>  
             <input id='name' type="text" placeholder="name" required value={accountName} onChange={(e) => setAccountName(e.target.value)} />
-        
+            <label htmlFor="type">Account Type:</label>
             <input id='type' type="text" placeholder="type" required value={accountType} onChange={(e) => setAccountType(e.target.value)} />
             <div className="button-group">
               <button onClick={() => setFormOpen(false)} className="btn-cancel">
                 Cancel
               </button>
               <button className="btn-submit" onClick={handlesubmit}>Submit</button>
+              </div>
             </div>
           </div>
         </div>
