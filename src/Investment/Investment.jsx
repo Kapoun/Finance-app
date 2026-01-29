@@ -7,12 +7,12 @@ import Sidebar from '../Sidebar/Sidebar';
 function Investment() {
   return (
     <div> 
-        <h1>Investment</h1>
+        <h1 className='header'>Investment</h1>
     <div className='side-bar-inv'>
        <Sidebar />
 
      </div>
-       <h2>Your Investment Categories</h2>
+       <h2 className='header-two'>Your Investment Categories</h2>
 
   <div className="card-container">
 

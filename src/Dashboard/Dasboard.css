@@ -1,0 +1,84 @@
+body{
+    background-color: rgb(223, 218, 218);
+}
+
+.welcome-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+    margin-left: 250px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(243, 238, 238);
+  height:400px;
+  width: 1000px;
+  margin-left: 250px;
+  border-radius: 2rem;
+}
+
+
+.total-balance {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+  font-size: 16px;
+  font-family: 'Avenir', sans-serif;
+}
+
+.balance-amount {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 20px;
+}
+
+.all-accounts {
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  margin-top: 10px;
+  margin: 20px;
+}
+
+.cards-container {
+  display: flex;
+  height: 100px;
+  width: 400px;
+  margin-top: 30px;
+
+  justify-content: baseline;
+  align-items: last baseline;
+}
+
+.accounts-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.more-details {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.more-details button{
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: orange;
+    
+}
+
+.more-details button:hover{
+    background-color: darkorange;
+    color: white;
+    transition: 0.3s;
+}

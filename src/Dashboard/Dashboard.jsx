@@ -15,70 +15,37 @@ import { useMemo } from 'react';
 
 const userName = "Kapoun";
 
-function Dashboard({ transactions = [] }) {
+function Dashboard() {
 
-  const balance = useMemo(() => {
-    return transactions.reduce(
-      (acc, t) =>
-        acc + (t.type === 'income'
-          ? Number(t.amount)
-          : -Number(t.amount)),
-      0
-    );
-  }, [transactions]);
 
 
   return (
-
-    <div className="dashboard">
+    <div className='dashboard-container'>
       <Sidebar />
-
-      <div className="main-content">
-
-        <div className="dash-header">
-          Welcome back, {userName}!
+      <div className='main-dashboard'>
+        <h1 className='welcome-message'>Welcome back, {userName}!</h1>
+          <div className='main-container'>
+            <label className='total-balance'>Total balance</label>
+            <label className='balance-amount'>KES 250,000</label>
+            <div className='more-details'>
+            <button className='add-amount'>+ Detail Received Amount</button>
+            <button className='Send-amunt'> - Detail send Amount</button>
+            </div>
+<hr />
+            <div className='all-accounts'>
+              <label className='accounts-label'>Your Accounts</label>
+              <div className='cards-container'>
+                <Card 
+                  title="All Accounts"
+                  />
+                </div>
+            </div>
+          </div>
         </div>
-
-        <div className="card-container">
-
-          <Card
-            title="Total Income"
-            amount={balance}
-            icon="💰"
-            color="#4FBC2B"
-          />
-
-          <Card
-            title="Investments"
-            amount="KES 000"
-            icon="📈"
-            color="#4FBC2B"
-          />
-
-          <Card
-            title="Expenses"
-            amount="KES 000"
-            icon="💸"
-            color="#4FBC2B"
-          />
-
-          <Card
-            title="Balance"
-            amount="KES 000"
-            icon="💸"
-            color="#4FBC2B"
-          />
         </div>
+   
+  );
+}
 
-
-        <h2>Transactions</h2>
-
-        
-      </div>
-
-    </div>
-
-  )
-};
 
 export default Dashboard;
