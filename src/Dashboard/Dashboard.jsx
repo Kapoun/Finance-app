@@ -35,13 +35,40 @@ function Dashboard() {
             <div className='all-accounts'>
               <label className='accounts-label'>Your Accounts</label>
               <div className='cards-container'>
-                <Card 
-                  title="All Accounts"
-                  />
+                <div className='card-details'>
+                  <label>Saving account</label>
+                </div>
+                <div className='card-details'>
+                  <label>Business account </label>
+                </div>
+                <div className='card-details'>
+                  <label>Personal account </label>
+                </div>
                 </div>
             </div>
           </div>
         </div>
+
+        <div className='more-details-container'>
+          <div className='details'> 
+            <label>Income</label>
+          </div>
+          <div className='details'> 
+            <label>Expenditure</label>
+          </div>
+          <div className='details'> 
+            <label>Investment</label>
+          </div>
+          <div className='details'>
+            <label>Transactions</label>
+             </div>
+          </div>
+               <div className='new-container'>
+                <div className='news'>
+                  News
+                </div>
+               </div>
+
         </div>
    
   );
