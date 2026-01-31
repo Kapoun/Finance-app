@@ -75,6 +75,17 @@ function AccountsPage({ }) {
           </div>
         </div>
       )}
+
+      <div className='account-container'> 
+       <div className='account-datails'> <label className='details' >Personal Account</label> <button className='details-btn'>Add </button></div> 
+       <div className='account-datails'> <label className='details'>Business Account</label><button className='details-btn'>Add </button></div> 
+       <div className='account-datails'><label className='details'>Savings Account</label><button className='details-btn'>Add </button></div>     
+        </div>
+
+        <div className='trans-container'> 
+          <label>RECENT ACCOUNT TRANSACTION</label>
+          
+          </div> 
             </div>
 
       
