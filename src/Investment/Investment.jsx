@@ -12,68 +12,16 @@ function Investment() {
        <Sidebar />
 
      </div>
-       <h2 className='header-two'>Your Investment Categories</h2>
+     <div className='inv-containeer'>
+       <div className='inv-card'><label>Personal Investment </label></div>
+       <div className='inv-card'><label>Business Investment </label></div>
+       <div className='inv-card'><label>Other Investment</label></div>
+     </div>  
 
-  <div className="card-container">
-
-        <Card 
-        title="Total Investment" 
-        amount="KES 000" 
-        icon="💸" 
-        color="#e9901dff"
-      />
-       
-       <Card 
-        title="Bonds" 
-        amount="KES 000" 
-        icon="🧾" 
-        color="#e9901dff"
-      />
+     <div className='inv-details'>
+      <label className='inv-lable'>More features to be added !!!</label>
       
-      <Card 
-        title="Money Market" 
-        amount="KES 000" 
-        icon="🏦" 
-        color="#e9901dff"
-      />
-       
-      <Card 
-        title="Index Funds" 
-        amount="KES 000" 
-        icon="📊" 
-        color="#e9901dff"
-      />
-
-       <Card 
-        title="Stocks" 
-        amount="KES 000" 
-        icon="📈" 
-        color="#e9901dff"
-      /> 
-
-      <Card 
-        title="undifined" 
-        amount="KES 000" 
-        icon="📈" 
-        color="#e9901dff"
-      />
-
-      <Card 
-        title="undifined" 
-        amount="KES 000" 
-        icon="📈" 
-        color="#e9901dff"
-      />
-
-
-      <Card 
-        title="undifined" 
-        amount="KES 000" 
-        icon="📈" 
-        color="#e9901dff"
-      />
-
-</div>
+      </div> 
     </div>
    
   );
