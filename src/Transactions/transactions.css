@@ -49,3 +49,14 @@
         opacity: 1;
     }
 }
+
+
+.trans-container {
+    display: flex;
+    align-items: center;
+    margin-left: 250px;
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+    background-color: rgb(168, 128, 76);
+}

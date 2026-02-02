@@ -109,7 +109,7 @@ function Transactions() {
         </button>
 
         {openForm && (
-  <div className="modal-overlay">
+    <div className="modal-overlay">
     <div className="modal-content">
       <TransactionForm
         newTransaction={newTransaction}
@@ -124,6 +124,8 @@ function Transactions() {
 
         <p>Balance: {balance}</p>
       </div>
+
+      <div className='trans-container'></div>
             </div>
         
     )
