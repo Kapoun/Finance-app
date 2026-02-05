@@ -11,14 +11,15 @@ function Expenditure({title , value}) {
              <Sidebar />
 
           <div className="card-container">   
-             <Card 
-           title="Total Expence"
-           amount="KES 25,000"
-           icon="💸"
-           color="#DBD523"
-           className="big-card"
-       />
+           <label>Items</label>
 
+           <div className='exp-details'>
+            <label>Details:</label>
+           </div>
+
+           <div className='exp-details'>
+            <label>Amount:</label>
+           </div>
         </div>
 
         
