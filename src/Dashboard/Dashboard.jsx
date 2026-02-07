@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faWallet,
+  faUser,
+  faChartLine,
+  faBuildingColumns
+} from '@fortawesome/free-solid-svg-icons';
+
+
+
 import AccountsPage from '../Accounts/Accounts';
 import './Dasboard.css';
 import Income from '../Income/Income';
@@ -37,12 +47,15 @@ function Dashboard() {
               <div className='cards-container'>
                 <div className='card-details'>
                   <label>Saving account</label>
+                  <FontAwesomeIcon icon={faUser} className='user-icon'/>
                 </div>
                 <div className='card-details'>
                   <label>Business account </label>
+                  <FontAwesomeIcon icon={faUser} className='user-icon'/>
                 </div>
                 <div className='card-details'>
                   <label>Personal account </label>
+                  <FontAwesomeIcon icon={faUser} className='user-icon'/>
                 </div>
                 </div>
             </div>
@@ -52,15 +65,20 @@ function Dashboard() {
         <div className='more-details-container'>
           <div className='details'> 
             <label>Income</label>
+            <FontAwesomeIcon icon={faWallet} className='wallet-icon'/>
           </div>
           <div className='details'> 
             <label>Expenditure</label>
+            <FontAwesomeIcon icon={faWallet} className='wallet-icon'/>
+           
           </div>
           <div className='details'> 
             <label>Investment</label>
+            <FontAwesomeIcon icon={faWallet} className='wallet-icon'/>
           </div>
           <div className='details'>
             <label>Transactions</label>
+            <FontAwesomeIcon icon={faWallet} className='wallet-icon'/>s
              </div>
           </div>
                <div className='new-container'>

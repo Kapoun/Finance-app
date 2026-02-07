@@ -1,5 +1,12 @@
 import React from 'react';
 import './Accounts.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faWallet,
+  faUser,
+  faChartLine,
+  faBuildingColumns
+} from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../Sidebar/Sidebar';
 import Card from '../Card/Card';
 import { useState } from 'react';
@@ -76,11 +83,32 @@ function AccountsPage({ }) {
         </div>
       )}
 
-      <div className='account-container'> 
-       <div className='account-datails'> <label className='details' >Personal Account</label> <button className='details-btn'>Add </button></div> 
-       <div className='account-datails'> <label className='details'>Business Account</label><button className='details-btn'>Add </button></div> 
-       <div className='account-datails'><label className='details'>Savings Account</label><button className='details-btn'>Add </button></div>     
-        </div>
+     <div className="account-container">
+
+  <div className="account-details">
+    <label className="details">Personal Account</label>
+
+    <FontAwesomeIcon
+      icon={faBuildingColumns}
+      className="details-icon"
+      size="3x"
+    />
+
+    <button className="details-btn">Add</button>
+  </div>
+
+  <div className="account-details">
+    <label className="details">Business Account</label>
+    <button className="details-btn">Add</button>
+  </div>
+
+  <div className="account-details">
+    <label className="details">Savings Account</label>
+    <button className="details-btn">Add</button>
+  </div>
+
+</div>
+
 
         <div className='trans-container'> 
           <label>RECENT ACCOUNT TRANSACTION</label>

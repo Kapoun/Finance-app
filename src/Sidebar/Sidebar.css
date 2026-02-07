@@ -1,6 +1,6 @@
 .sidebar {
   height: 100vh;
-  background: rgb(168, 128, 76); /* deep navy vibes */
+  background: rgb(107, 82, 46); /* deep navy vibes */
   color: #fff;
   padding: 20px;
   position: fixed; /* stays on the left */
@@ -10,7 +10,6 @@
   flex-direction: column;
   gap: 20px;
 }
-
 
 
 .sidebar a {

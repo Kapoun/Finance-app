@@ -11,6 +11,8 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
     "@supabase/supabase-js": "^2.86.2",
     "axios": "^1.13.2",
     "bcrypt": "^6.0.0",
